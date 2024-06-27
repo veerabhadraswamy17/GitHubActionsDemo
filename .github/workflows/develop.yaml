@@ -1,0 +1,19 @@
+name: development ci workflow
+on:
+  push:
+    branches:
+      - 'develop'
+jobs:
+  dev-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the repo
+        uses: actions/checkout@v3
+      - name: Install Node js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Tests
+        run: npm test
