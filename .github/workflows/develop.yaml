@@ -4,7 +4,7 @@ on:
     branches:
       - 'develop'
 jobs:
-  dev-workflow:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - name: Clone the repo
@@ -17,3 +17,17 @@ jobs:
         run: npm ci
       - name: Run Tests
         run: npm test
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build the project
+        run: npm run build
+  
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy the project
+        run: | 
+          echo "Deploying the project"
+          sleep 4
+          echo "Deployed!!!"
