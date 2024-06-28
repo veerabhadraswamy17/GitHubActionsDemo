@@ -4,7 +4,7 @@ on:
     types:
       - closed
 jobs:
-  tests:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Clone the repo
@@ -18,6 +18,7 @@ jobs:
       - name: Run Tests
         run: npm test
   build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: clone the repo
@@ -32,6 +33,7 @@ jobs:
         run: npm run build
   
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy the project
