@@ -1,4 +1,4 @@
-name: development ci workflow
+name: Test CI workflow
 on:
   pull_request:
     types:
