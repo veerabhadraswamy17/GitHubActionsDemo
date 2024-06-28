@@ -4,7 +4,7 @@ on:
     types:
       - closed
 jobs:
-  dev-workflow:
+  test-workflow:
     runs-on: ubuntu-latest
     steps:
       - name: Clone the repo
